@@ -3,14 +3,17 @@ pipeline{
     stages{
         stage('Zip file'){
             steps{
-              sh 'echo "Creating Archive..."'
-              // sh 'zip -r -q zipFile . Releases.zip'
-              // archiveArtifacts 'Releases.zip'
+              sh 'echo "Removing Existing Archive (if/any)..."'
+              sh 'rm -rf deploymentFile.zip'
+              sh 'echo "Creating Archiver..."'
+              sh 'zip -r -q deploymentFile.zip .vscode images packages .dockerignore .editorconfig Dockerfile LICENSE docker-compose.yml package.json yarn.lock'
+              sh 'echo "Creating Artifact..."'
+              archiveArtifacts 'deploymentFile.zip'
             }
         }
         stage('Update code'){
             steps{
-                sh 'echo "test"'
+                sh 'echo "Deploying code..."'
             }
         }
     }
