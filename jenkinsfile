@@ -3,15 +3,14 @@ pipeline{
     stages{
         stage('Zip file'){
             steps{
-               sh 'zip zipFile "Releases.zip" archive:true'
+               sh 'zip -r -q zipFile . Releases.zip'
+               archiveArtifacts 'Releases.zip'
             }
         }
         stage('Update code'){
             steps{
                 sh 'echo "test"'
-               
             }
         }
-        
     }
 }
