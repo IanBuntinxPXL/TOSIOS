@@ -1,0 +1,16 @@
+pipeline{
+    agent any
+    stages{
+        stage('Zip file'){
+            steps{
+                zip zipFile 'Releases.zip' archive:true
+            }
+        }
+        stage('Update code'){
+            steps{
+                git clone 'https://github.com/halftheopposite/TOSIOS'
+            }
+        }
+        
+    }
+}
