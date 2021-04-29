@@ -1,14 +1,16 @@
 pipeline{
     agent any
     stages{
-        stage('Zip file'){
+        stage('Create Archive and Artifact'){
             steps{
+              sh 'pwd'
               sh 'echo "Removing Existing Archive (if/any)..."'
               sh 'rm -rf deploymentFile.zip'
               sh 'echo "Creating Archiver..."'
               sh 'zip -r -q deploymentFile.zip .vscode images packages .dockerignore .editorconfig Dockerfile LICENSE docker-compose.yml package.json yarn.lock'
               sh 'echo "Creating Artifact..."'
               archiveArtifacts 'deploymentFile.zip'
+              sh 'ls -la'
             }
         }
         stage('Update code'){
