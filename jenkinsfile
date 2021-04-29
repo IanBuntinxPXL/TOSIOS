@@ -3,8 +3,8 @@ pipeline{
     stages{
         stage('Zip file'){
             steps{
-               sh 'zip -r -q zipFile . Releases.zip'
-               archiveArtifacts 'Releases.zip'
+              // sh 'zip -r -q zipFile . Releases.zip'
+              // archiveArtifacts 'Releases.zip'
             }
         }
         stage('Update code'){
