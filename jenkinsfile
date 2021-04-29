@@ -8,6 +8,7 @@ pipeline{
         }
         stage('Update code'){
             steps{
+                sh 'echo "test"'
                 git clone 'https://github.com/halftheopposite/TOSIOS'
             }
         }
