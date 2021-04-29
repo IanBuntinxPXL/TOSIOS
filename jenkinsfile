@@ -33,7 +33,7 @@ pipeline{
     post ('Cleanup') {
 	      success {
 		       sh 'echo "Removing archive"'
-           sh 'sudo rm -rf /home/ubuntudesktop/Desktop/Jens_MyLoadbalancer/Archives/deploymentFile.zip'
+         //  sh 'sudo rm -rf /home/ubuntudesktop/Desktop/Jens_MyLoadbalancer/Archives/deploymentFile.zip'
 	      }
 	      failure {
 		       sh 'echo "build failed on $(date)" > var/lib/jenkins/jenkinsErrorlog.txt'
