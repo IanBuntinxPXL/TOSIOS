@@ -7,7 +7,7 @@ pipeline{
               sh 'rm -rf deploymentFile.zip'
               
               sh 'echo "Creating Archive..."'
-              sh 'zip -r -q deploymentFile.zip .vscode images packages .dockerignore .editorconfig Dockerfile LICENSE docker-compose.yml package.json yarn.lock'
+              sh 'zip -r -q deploymentFile.zip .vscode images packages .dockerignore .editorconfig Dockerfile LICENSE docker-compose.yml package.json yarn.lock testfile.txt'
             }
         }
         
@@ -18,11 +18,18 @@ pipeline{
             }
         }
         
-        stage('Update code'){
+        stage('Deploy Archive'){
             steps{
-                sh 'echo "Deploying code..."'
+                sh 'echo "Deploying Archive..."'
+        		    sh 'mv deploymentFile.zip /home/ubuntudesktop/Desktop/Jens_MyLoadbalancer/Archives/'
+                
+                sh 'echo "unzipping Archive..."'
+        		    sh 'unzip -o -q /home/ubuntudesktop/Desktop/Jens_MyLoadbalancer/Archives/deploymentFile.zip -d /home/ubuntudesktop/Desktop/Jens_MyLoadbalancer/TOSIOS-master/'
+                
+                sh 'echo "Removing archive"'
+                //sh 'rm -rf /home/ubuntudesktop/Desktop/Jens_MyLoadbalancer/Archives/deploymentFile.zip'
+                
             }
         }
-        
     }
 }
