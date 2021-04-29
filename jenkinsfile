@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('Zip file'){
             steps{
-                zip zipFile 'Releases.zip' archive:true
+               sh 'zip zipFile "Releases.zip" archive:true'
             }
         }
         stage('Update code'){
