@@ -24,7 +24,7 @@ pipeline{
         		    sh 'sudo mv deploymentFile.zip /home/ubuntudesktop/Desktop/Jens_MyLoadbalancer/Archives/'
                 
                 sh 'echo "unzipping Archive..."'
-        		    sh 'sudo unzip -o -q /home/ubuntudesktop/Desktop/Jens_MyLoadbalancer/Archives/deploymentFile.zip -d /home/ubuntudesktop/Desktop/Jens_MyLoadbalancer/TOSIOS-master/'
+        		    sh 'sudo unzip -o -q /home/ubuntudesktop/Desktop/Jens_MyLoadbalancer/Archives/deploymentFile.zip -d /home/ubuntudesktop/Desktop/Jens_MyLoadbalancer/TOSIOS-master'
                 
                 sh 'echo "Removing archive"'
                 //sh 'sudo rm -rf /home/ubuntudesktop/Desktop/Jens_MyLoadbalancer/Archives/deploymentFile.zip'
