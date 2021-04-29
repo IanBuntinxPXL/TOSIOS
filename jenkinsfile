@@ -3,6 +3,7 @@ pipeline{
     stages{
         stage('Zip file'){
             steps{
+              sh 'echo "Creating Archive..."'
               // sh 'zip -r -q zipFile . Releases.zip'
               // archiveArtifacts 'Releases.zip'
             }
