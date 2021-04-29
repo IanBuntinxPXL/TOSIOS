@@ -21,13 +21,13 @@ pipeline{
         stage('Deploy Archive'){
             steps{
                 sh 'echo "Deploying Archive..."'
-        		    sh 'mv deploymentFile.zip /home/ubuntudesktop/Desktop/Jens_MyLoadbalancer/Archives/'
+        		    sh 'sudo mv deploymentFile.zip /home/ubuntudesktop/Desktop/Jens_MyLoadbalancer/Archives/'
                 
                 sh 'echo "unzipping Archive..."'
-        		    sh 'unzip -o -q /home/ubuntudesktop/Desktop/Jens_MyLoadbalancer/Archives/deploymentFile.zip -d /home/ubuntudesktop/Desktop/Jens_MyLoadbalancer/TOSIOS-master/'
+        		    sh 'sudo unzip -o -q /home/ubuntudesktop/Desktop/Jens_MyLoadbalancer/Archives/deploymentFile.zip -d /home/ubuntudesktop/Desktop/Jens_MyLoadbalancer/TOSIOS-master/'
                 
                 sh 'echo "Removing archive"'
-                //sh 'rm -rf /home/ubuntudesktop/Desktop/Jens_MyLoadbalancer/Archives/deploymentFile.zip'
+                //sh 'sudo rm -rf /home/ubuntudesktop/Desktop/Jens_MyLoadbalancer/Archives/deploymentFile.zip'
                 
             }
         }
