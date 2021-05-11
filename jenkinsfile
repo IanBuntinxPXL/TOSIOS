@@ -29,6 +29,24 @@ pipeline{
                
             }
         }
+        
+        stage ('remove old docker containers and images') {
+            steps {
+                sh 'docker stop jens_myloadbalancer_j_nginx_1'
+                sh 'docker stop jens_myloadbalancer_j_tosios1_1'
+                sh 'docker stop jens_myloadbalancer_j_tosios2_1'
+
+                sh 'docker rmi jens_myloadbalancer_j_nginx'
+                sh 'docker rmi jens_myloadbalancer_j_tosios1'
+                sh 'docker rmi jens_myloadbalancer_j_tosios2'
+            }
+        }
+
+        stage('deploy docker container') {
+            steps {
+                sh 'docker compose up /home/ubuntudesktop/Desktop/Jens_MyLoadbalancer'
+            }
+        }
     }
     post ('Cleanup') {
 	      success {
