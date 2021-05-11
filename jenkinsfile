@@ -35,6 +35,10 @@ pipeline{
                 sh 'docker stop jens_myloadbalancer_j_nginx_1'
                 sh 'docker stop jens_myloadbalancer_j_tosios1_1'
                 sh 'docker stop jens_myloadbalancer_j_tosios2_1'
+                
+                sh 'docker rm jens_myloadbalancer_j_nginx_1'
+                sh 'docker rm jens_myloadbalancer_j_tosios1_1'
+                sh 'docker rm jens_myloadbalancer_j_tosios2_1'
 
                 sh 'docker rmi jens_myloadbalancer_j_nginx'
                 sh 'docker rmi jens_myloadbalancer_j_tosios1'
