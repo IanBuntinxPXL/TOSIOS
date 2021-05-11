@@ -48,7 +48,7 @@ pipeline{
 
         stage('deploy docker container') {
             steps {
-                sh 'docker compose up /home/ubuntudesktop/Desktop/Jens_MyLoadbalancer'
+                sh 'docker-compose up -f /home/ubuntudesktop/Desktop/Jens_MyLoadbalancer'
             }
         }
     }
